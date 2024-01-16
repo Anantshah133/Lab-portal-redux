@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#remember{
+    color: rgb(5, 150, 105);
+}
+
+.toast .Toastify__toast-body>div:last-child {
+    font-weight: 600;
+    color: #444;
+}
