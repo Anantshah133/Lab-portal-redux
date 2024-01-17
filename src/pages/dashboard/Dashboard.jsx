@@ -6,6 +6,7 @@ const Dashboard = () => {
     return (
         <>
             <h1 className="text-3xl ml-5 mb-4 font-semibold whitespace-nowrap">Dashboard</h1>
+            <div className="ml-5 border border-gray-300 mb-5"></div>
             <div className="p-1 border-emerald-700 rounded-lg flex-wrap flex">
                 <div className="w-full md:w-1/2 mt-4 lg:w-1/3 lg:mt-0 px-3">
                     <div className="p-6 transition-shadow border border-emerald-700 rounded-lg shadow-lg hover:shadow-lg bg-white flex">

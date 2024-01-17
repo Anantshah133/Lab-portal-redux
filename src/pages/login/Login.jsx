@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import Logo from '../components/Logo'
+import Logo from '../../components/Logo'
 import { ToastContainer, toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsLoggedIn } from '../features/user/userSlice';
+import { setIsLoggedIn } from '../../features/user/userSlice';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
