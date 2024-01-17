@@ -5,7 +5,7 @@ const StudentsTable = () => {
     const { studentList } = useSelector(state => state.students)
     return (
         <div className="relative overflow-x-auto shadow-lg sm:rounded-lg border border-emerald-600">
-            <table className="w-full text-sm text-left rtl:text-right text-gray-500">
+            <table className="w-full text-base text-left rtl:text-right text-gray-500">
                 <thead className="text-sm border-b border-emerald-600 text-white uppercase bg-emerald-700">
                     <tr>
                         <th scope="col" className="px-6 py-3">

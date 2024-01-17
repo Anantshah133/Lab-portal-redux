@@ -35,7 +35,7 @@ const Login = () => {
             return;
         }
         if (userCredentials.email === input.email && userCredentials.password === input.password) {
-            dispatch(setIsLoggedIn());
+            dispatch(setIsLoggedIn(true));
             setTimeout(() => {
                 navigate('/')
             }, 1000);
