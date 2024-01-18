@@ -10,7 +10,7 @@ const ComputersTable = () => {
                 <thead className="text-sm border-b border-emerald-600 text-white uppercase bg-emerald-700">
                     <tr>
                         <th scope="col" className="px-6 py-3">
-                            Pc Number
+                            Pc Name
                         </th>
                         <th scope="col" className="px-6 py-3">
                             Company
@@ -28,7 +28,7 @@ const ComputersTable = () => {
                         computerList.map((computer, idx) => (
                             <tr className="bg-white border-b hover:bg-emerald-50" key={idx}>
                                 <th scope="row" className="px-5 text-base py-3 font-medium text-gray-900 whitespace-nowrap">
-                                    {computer.pcNum}
+                                    {computer.pcName}
                                 </th>
                                 <td className="px-5 py-3">
                                     {computer.company}

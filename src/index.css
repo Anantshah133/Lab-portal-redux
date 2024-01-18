@@ -10,3 +10,11 @@
     font-weight: 600;
     color: #444;
 }
+
+.no-focus:focus{
+    outline: none;
+    outline-offset: 0;
+    outline-color: transparent;
+    border-width: 2px;
+    box-shadow: none !important;
+}

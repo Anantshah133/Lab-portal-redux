@@ -6,6 +6,7 @@ import DashboardLayout from "./pages/DashboardLayout"
 import Computers from "./pages/computers/Computers"
 import Dashboard from "./pages/dashboard/Dashboard"
 import Students from "./pages/students/Students"
+import AddStudent from "./pages/students/components/AddStudent"
 
 const App = () => {
     const { isLoggedIn } = useSelector((state) => state.user)
@@ -18,6 +19,7 @@ const App = () => {
                         <Route index element={<Dashboard />} />
                         <Route path='computers' element={<Computers />} />
                         <Route path='users' element={<Students />} />
+                        <Route path='users/add-student' element={<AddStudent />} />
                     </Route>
                 {/* </Route> */}
                 <Route path="/login" element={<Login />}></Route>

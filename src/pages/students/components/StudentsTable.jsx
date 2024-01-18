@@ -15,7 +15,7 @@ const StudentsTable = () => {
                             GRID
                         </th>
                         <th scope="col" className="px-6 py-3 text-center">
-                            PC Number
+                            PC Name
                         </th>
                         <th scope="col" className="px-6 py-3">
                             Course
@@ -36,7 +36,7 @@ const StudentsTable = () => {
                                     {student.grId}
                                 </td>
                                 <td className="px-5 py-3 text-center">
-                                    {student.pcNum}
+                                    {student.pcName}
                                 </td>
                                 <td className="px-5 py-3 capitalize">
                                     {student.course}
