@@ -7,6 +7,7 @@ import Computers from "./pages/computers/Computers"
 import Dashboard from "./pages/dashboard/Dashboard"
 import Students from "./pages/students/Students"
 import AddStudent from "./pages/students/AddStudent"
+import AddEditComputer from "./pages/computers/AddEditComputer"
 
 const App = () => {
     const { isLoggedIn } = useSelector((state) => state.user)
@@ -21,6 +22,8 @@ const App = () => {
                         <Route path='users' element={<Students />} />
                         <Route path='users/add-student' element={<AddStudent />} />
                         <Route path='users/edit-student/:id' element={<AddStudent />} />
+                        <Route path='computers/add-computer' element={<AddEditComputer />} />
+                        <Route path='computers/edit-computer/:id' element={<AddEditComputer />} />
                     </Route>
                 {/* </Route> */}
                 <Route path="/login" element={<Login />}></Route>
