@@ -94,6 +94,7 @@ const AddStudent = () => {
         }
         navigate('/users')
     }
+    console.log(input.pcName, input.course);
     return (
         <>
             <div className="ml-5 mr-5 mb-4 flex items-center justify-between">
@@ -124,7 +125,7 @@ const AddStudent = () => {
                     <div className="mb-4">
                         <label htmlFor="course" className="mb-2 block">Course :</label>
                         <select id="course" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-700 focus:border-emerald-700 block w-full p-2.5" onChange={handleChange} value={input.course}>
-                            <option value="" defaultValue>Choose Course</option>
+                            <option value="">Choose Course</option>
                             <option value="Full stack development">Full stack development</option>
                             <option value="Animation">Animation</option>
                             <option value="Frontend Development">Frontend Development</option>
@@ -133,10 +134,10 @@ const AddStudent = () => {
                     </div>
                     <div className="mb-4">
                         <label htmlFor="pcName" className="mb-2 block">Assign Computer :</label>
-                        <select id="pcName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-700 focus:border-emerald-700 block w-full p-2.5" onChange={handleChange} value={input.pcName} >
+                        <select id="pcName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-700 focus:border-emerald-700 block w-full p-2.5">
                             {availablePc.length > 0 ?
                                 <>
-                                    <option value={input.pcName || 'Choose PC'} defaultValue>{input.pcName || 'Choose PC'}</option>
+                                    <option value={isEdit ? input.pcName : ''}>{isEdit ? input.pcName : 'Choose PC'}</option>
                                     {availablePc.map((pc, id) =>
                                         <option value={pc.pcName} key={pc.pcName}>{pc.pcName}</option>
                                     )}
