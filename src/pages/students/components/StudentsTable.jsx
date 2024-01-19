@@ -43,7 +43,7 @@ const StudentsTable = () => {
                                 </td>
                                 <td className="px-5 py-3 text-center flex gap-8 justify-center">
                                     <Link className="font-medium text-teal-600 dark:text-teal-500 hover:underline">View</Link>
-                                    <Link className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
+                                    <Link to={`/users/edit-student/${student.grId}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
                                     <Link className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</Link>
                                 </td>
                             </tr>

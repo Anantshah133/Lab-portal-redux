@@ -18,9 +18,15 @@ const studentsSlice = createSlice({
     reducers: {
         addStudent: (state, { payload }) => {
             state.studentList.push(payload)
+        },
+        updateStudent: (state, action) => {
+            const index = state.studentList.findIndex(student => student.grId === action.payload.grId);
+            if (index !== -1) {
+                state.studentList[index] = action.payload;
+            }
         }
     }
 })
 
-export const { addStudent } = studentsSlice.actions;
+export const { addStudent, updateStudent } = studentsSlice.actions;
 export default studentsSlice.reducer;

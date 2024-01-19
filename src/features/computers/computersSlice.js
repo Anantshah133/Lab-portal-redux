@@ -20,9 +20,13 @@ const computersSlice = createSlice({
     name: 'computers',
     initialState,
     reducers: {
-        setIsAssigned: (state, {payload}) => {
-            const pc = state.computerList.find(pc => pc.pcNum === payload);
-            pc.isAssigned = true;
+        setIsAssigned: (state, action) => {
+            const { pcNum, value } = action.payload;
+            const pc = state.computerList.find(pc => pc.pcNum === pcNum);
+            console.log('called', pcNum, value);
+            if (pc) {
+                pc.isAssigned = value;
+            }
         }
     }
 })
