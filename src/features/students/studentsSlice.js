@@ -24,9 +24,13 @@ const studentsSlice = createSlice({
             if (index !== -1) {
                 state.studentList[index] = action.payload;
             }
+        },
+        deleteStudent: (state, action) => {
+            const id = action.payload;
+            state.studentList = state.studentList.filter((student)=>student.grId !== id);
         }
     }
 })
 
-export const { addStudent, updateStudent } = studentsSlice.actions;
+export const { addStudent, updateStudent, deleteStudent } = studentsSlice.actions;
 export default studentsSlice.reducer;
