@@ -54,7 +54,7 @@ const ComputersTable = () => {
                                     {computer.isAssigned ? 'Assigned' : 'Not Assigned'}
                                 </td>
                                 <td className="px-5 py-3 text-center flex gap-8 justify-center">
-                                    <Link className="font-medium text-teal-600 dark:text-teal-500 hover:underline">View</Link>
+                                    {/* <Link className="font-medium text-teal-600 dark:text-teal-500 hover:underline">View</Link> */}
                                     <Link to={`/computers/edit-computer/${computer.pcNum}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
                                     <button className="font-medium text-red-600 dark:text-red-500 hover:underline" onClick={() => handleDelete(computer.pcNum, computer.pcName)}>Delete</button>
                                 </td>
