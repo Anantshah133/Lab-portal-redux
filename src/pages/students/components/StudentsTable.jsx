@@ -5,10 +5,12 @@ import { setIsAssigned } from "../../../features/computers/computersSlice";
 import { ToastContainer, toast } from "react-toastify";
 import { Button } from "flowbite-react";
 import { useState } from "react";
+import ModalView from '../../../components/ModalView'
 
 const StudentsTable = () => {
     const { studentList } = useSelector(state => state.students)
     const [openModal, setOpenModal] = useState(false);
+    const [selectedStudent, setSelectedStudent] = useState(null);
     const dispatch = useDispatch();
 
     const fireToastSuccess = (msg) => {
@@ -26,6 +28,11 @@ const StudentsTable = () => {
         dispatch(setIsAssigned({ pcNum: parseInt(pcNum), value: false }))
         fireToastSuccess('Data deleted successfully...')
     }
+
+    const handleView = (student) => {
+        setSelectedStudent(student);
+        setOpenModal(true);
+    };
 
     return (
         <div className="relative overflow-x-auto shadow-lg sm:rounded-lg border border-emerald-600">
@@ -60,13 +67,18 @@ const StudentsTable = () => {
                                     {student.grId}
                                 </td>
                                 <td className="px-5 py-3 text-center">
-                                    {student.pcName || 'Not Assigned' }
+                                    {student.pcName || 'Not Assigned'}
                                 </td>
                                 <td className="px-5 py-3 capitalize">
                                     {student.course}
                                 </td>
                                 <td className="px-5 py-3 text-center flex gap-8 justify-center">
-                                    <Link className="font-medium text-teal-600 dark:text-teal-500 hover:underline">View</Link>
+                                    <button
+                                        className="font-medium text-teal-600 dark:text-teal-500 hover:underline"
+                                        onClick={() => handleView(student)}
+                                    >
+                                        View
+                                    </button>
                                     <Link to={`/users/edit-student/${student.grId}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
                                     <button className="font-medium text-red-600 dark:text-red-500 hover:underline" onClick={() => {
                                         handleDelete(student.grId, student.pcNum)
@@ -79,6 +91,9 @@ const StudentsTable = () => {
                     }
                 </tbody>
             </table>
+            {selectedStudent && (
+                <ModalView openModal={openModal} setOpenModal={setOpenModal} student={selectedStudent} />
+            )}
             <ToastContainer />
         </div>
     )
