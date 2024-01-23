@@ -32,10 +32,18 @@ const studentsSlice = createSlice({
         setPcName: (state, action) => {
             const { name, pcNum } = action.payload;
             const student = state.studentList.find((stud) => stud.pcNum == pcNum);
-            if(student) student.pcName = name;
+            if (student) student.pcName = name
+        },
+        setStudentDetail: (state, action) => {
+            const pcNum = action.payload;
+            const student = state.studentList.find((stud) => stud.pcNum == pcNum);
+            if(student) {
+                student.pcName = null;
+                student.pcNum = null;
+            };
         }
     }
 })
 
-export const { addStudent, updateStudent, deleteStudent, setPcName } = studentsSlice.actions;
+export const { addStudent, updateStudent, deleteStudent, setPcName, setStudentDetail } = studentsSlice.actions;
 export default studentsSlice.reducer;

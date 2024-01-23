@@ -133,13 +133,11 @@ const AddStudent = () => {
                     </div>
                     <div className="mb-4">
                         <label htmlFor="pcName" className="mb-2 block">Assign Computer :</label>
-                        <select id="pcName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-700 focus:border-emerald-700 block w-full p-2.5" onChange={handleChange}>
+                        <select id="pcName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-700 focus:border-emerald-700 block w-full p-2.5" onChange={handleChange} value={input.pcName} >
                             {availablePc.length > 0 ?
                                 <>
-                                    <option value={isEdit ? input.pcName : ''}>{isEdit ? input.pcName : 'Choose PC'}</option>
-                                    {availablePc.map((pc, id) =>
-                                        <option value={pc.pcName} key={pc.pcName}>{pc.pcName}</option>
-                                    )}
+                                    <option value=''>Choose PC</option>
+                                    {availablePc.map((pc, id) => <option value={pc.pcName} key={pc.pcName}>{pc.pcName}</option>)}
                                 </>
                                 : <option value="" defaultValue>All Computers are assigned</option>
                             }

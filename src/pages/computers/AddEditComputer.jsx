@@ -38,7 +38,7 @@ const AddEditComputer = () => {
         }
         if (isEdit) {
             dispatch(editComputer(input))
-            dispatch(setPcName({name: input.pcName, pcNum: parseInt(input.pcNum)}))
+            dispatch(setPcName({name: input.pcName, pcNum: parseInt(input.pcNum)}, ))
         } else {
             const isExist = computerList.some((computer) => computer.pcName === input.pcName);
             if (isExist) {

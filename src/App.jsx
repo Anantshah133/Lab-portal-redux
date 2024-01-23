@@ -15,7 +15,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <Routes>
-                {/* <Route path="/" element={<ProtectedRoute isLoggedIn={isLoggedIn} />}> */}
+                <Route path="/" element={<ProtectedRoute isLoggedIn={isLoggedIn} />}>
                     <Route path="/" element={<DashboardLayout />}>
                         <Route index element={<Dashboard />} />
                         <Route path='computers' element={<Computers />} />
@@ -25,7 +25,7 @@ const App = () => {
                         <Route path='computers/add-computer' element={<AddEditComputer />} />
                         <Route path='computers/edit-computer/:id' element={<AddEditComputer />} />
                     </Route>
-                {/* </Route> */}
+                </Route>
                 <Route path="/login" element={<Login />}></Route>
             </Routes>
         </BrowserRouter>

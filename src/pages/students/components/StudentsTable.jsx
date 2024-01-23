@@ -3,9 +3,12 @@ import { Link } from "react-router-dom"
 import { deleteStudent } from "../../../features/students/studentsSlice";
 import { setIsAssigned } from "../../../features/computers/computersSlice";
 import { ToastContainer, toast } from "react-toastify";
+import { Button } from "flowbite-react";
+import { useState } from "react";
 
 const StudentsTable = () => {
     const { studentList } = useSelector(state => state.students)
+    const [openModal, setOpenModal] = useState(false);
     const dispatch = useDispatch();
 
     const fireToastSuccess = (msg) => {
@@ -21,7 +24,7 @@ const StudentsTable = () => {
         // const deleteStudentId = studentList.findIndex((student)=>student.grId === studentId);
         dispatch(deleteStudent(studentId));
         dispatch(setIsAssigned({ pcNum: parseInt(pcNum), value: false }))
-        fireToastSuccess('Data deleted successfully..')
+        fireToastSuccess('Data deleted successfully...')
     }
 
     return (
@@ -57,7 +60,7 @@ const StudentsTable = () => {
                                     {student.grId}
                                 </td>
                                 <td className="px-5 py-3 text-center">
-                                    {student.pcName}
+                                    {student.pcName || 'Not Assigned' }
                                 </td>
                                 <td className="px-5 py-3 capitalize">
                                     {student.course}
@@ -71,7 +74,7 @@ const StudentsTable = () => {
                                 </td>
                             </tr>
                         )) : <tr className="bg-white border-b hover:bg-emerald-50">
-                            <td className="px-5 py-3 text-black font-bold text-center" colSpan={5}>No data Found</td>
+                            <td className="px-5 py-3 text-black font-bold text-center" colSpan={5}>No Students Found</td>
                         </tr>
                     }
                 </tbody>

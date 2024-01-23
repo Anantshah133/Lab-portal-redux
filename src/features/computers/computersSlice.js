@@ -31,16 +31,20 @@ const computersSlice = createSlice({
         },
         editComputer: (state, action) => {
             const updatedData = state.computerList.map((computer) => {
-                if(action.payload.pcNum === computer.pcNum){
+                if (action.payload.pcNum === computer.pcNum) {
                     console.log('changed');
                     return action.payload;
                 }
                 return computer;
             })
             state.computerList = updatedData;
+        },
+        deleteComputer: (state, action) => {
+            const delId = action.payload;
+            state.computerList = state.computerList.filter((pc) => pc.pcNum !== delId)
         }
     }
 })
 
-export const { setIsAssigned, addComputer, editComputer } = computersSlice.actions;
+export const { setIsAssigned, addComputer, editComputer, deleteComputer } = computersSlice.actions;
 export default computersSlice.reducer;
